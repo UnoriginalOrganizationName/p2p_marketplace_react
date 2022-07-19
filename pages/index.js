@@ -1,7 +1,11 @@
 import Link from 'next/link'
-
-import styles from '../styles/Home.module.css'
+import Head from 'next/head'
+import { Component } from 'react'
 
 export default function Home() {
-  return <Link href="/users">Users</Link>
+  return (
+    <div className='d-flex justify-content-center align-items-center'>
+      <h1 className='mb-3'>Welcome!</h1>
+    </div>
+  )
 }
