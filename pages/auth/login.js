@@ -1,20 +1,20 @@
-const login = () =>{
+import AuthForm from "../../components/AuthForm";
 
-    return (
-        <div className="container">
-            <form action="" method="post">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"/>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+const login = (props) =>{
+
+    const submitUser= async (event) => {
+        event.preventDefault();
+        const res = await fetch(`${process.env.HOST}/login`)
+        
+    }
+
+    return(
+        <div>
+            <h1 className="page-title">Sign In</h1>
+        <AuthForm {...submitUser}></AuthForm>
         </div>
     )
+
 }
 
 export default login
