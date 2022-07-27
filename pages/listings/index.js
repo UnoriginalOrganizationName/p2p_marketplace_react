@@ -16,8 +16,8 @@ const listings = ({listings}) => {
             <h1 className="page-title">Listings</h1>
         {data.map(listing =>(
             <div key={listing.id}>
-                {listing.start_date}
-                {listing.end_date}
+                <p>start date: {listing.start_date}</p>
+                <p>end date:{listing.end_date}</p>
             </div>
         ))}
     </div>

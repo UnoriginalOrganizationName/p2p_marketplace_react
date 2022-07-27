@@ -7,72 +7,15 @@ const initialState = {
 }
 
 const reducer = (state, action) =>{
+    let newState;
     switch(action.type){
-        case "signup":
-            fetch(state.url + "/users", {
-                method: "post",
-                headers:{
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(action.payload)
-            })
-            .then(res => res.json())
-            .then(user =>{
-                return {
-                    ...state,
-                    token: user.token
-
-                }
-            });
-            break
-            fetch(state.url + "/users", {
-                method: "post",
-                headers:{
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(action.payload)
-            })
-            .then(res => res.json())
-            .then(user =>{
-                return {
-                    ...state,
-                    token: user.token,
-                    email: user.user.email
-                }
-            });
-            break
-            case "login":
-                fetch(state.url + "/login", {
-                    method: "post",
-                    headers:{
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(action.payload)
-                })
-                .then(res => res.json())
-                .then(user =>{
-                    return {
-                        ...state,
-                        token: user.token,
-                        email: user.user.email
-                    }
-                })
-                fetch(state.url + "/users", {
-                    method: "post",
-                    headers:{
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(action.payload)
-                })
-                .then(res => res.json())
-                .then(user =>{
-                    return {
-                        ...state,
-                        token: user.token
-                    }
-                })
+        case "auth":
+            newState = {...state, ...action.payload};
+            return newState;
+            break;
         default:
-            return state
+            return state;
+            break;
         break
     }
 }

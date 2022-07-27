@@ -9,6 +9,7 @@ const Layout = ({children}) => {
                 <title>Marketplace</title>
             </Head>
             <body>
+                <Header></Header>
                 <main>
                     {children}
                 </main>

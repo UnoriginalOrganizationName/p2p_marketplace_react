@@ -17,12 +17,12 @@ const auth = (props) =>{
     React.useEffect(() => {
         if (userData) {
           const { token, user } = userData;
-          dispatch({ type: "auth", payload: { token, username: user.username } });
+          dispatch({ type: "auth", payload: { token, email: user.email } });
           window.localStorage.setItem(
             "auth",
-            JSON.stringify({ token, username: user.username })
+            JSON.stringify({ token, email: user.email })
           );
-          props.history.push("/dashboard");
+          props.history.push("/profile");
         }
       }, [userData]);
 

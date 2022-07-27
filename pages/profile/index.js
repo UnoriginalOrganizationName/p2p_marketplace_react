@@ -7,10 +7,12 @@ const profile = (props) => {
                 <div className="row">
                     <div className="col">
                         <h2>My Listings</h2>
+                        <Link href="/listings/new">Create</Link>
                         <Link href="/listings">View All</Link>
                     </div>
                     <div className="col">
                         <h2>My Requests</h2>
+                        <Link href="/requests/new">Create</Link>
                         <Link href="/requests">View All</Link>
                     </div>
                     <div className="col">
