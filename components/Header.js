@@ -13,7 +13,7 @@ const Header = () =>{
                             <Link href="/auth/login" className="nav-link">Login</Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="/auth/register" className="nav-link">Sign Up</Link>
+                            <Link href="/auth/signup" className="nav-link">Sign Up</Link>
                         </li>
 
                     </ul>

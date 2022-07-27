@@ -3,6 +3,8 @@ import { useAppState } from "../../AppState";
 
 const auth = (props) =>{
 
+    const type = "signup";
+
     const [formData, setFormData] = React.useState({
         email: "",
         password: ""
@@ -24,15 +26,17 @@ const auth = (props) =>{
         }
       }, [userData]);
 
-    const action ={
-        login: () => {
-            return fetch(state.url + "/login", {
-              method: "post",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            }).then((response) => response.json());
+    const actions ={
+        signup: () => {
+            return fetch(state.url + "/users",{
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+
+            })
+            .then((res) => res.json());
         }
     }
 
@@ -42,14 +46,14 @@ const auth = (props) =>{
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        action[type]().then((data) => {
-          setUserData(data);
-        });    
+        dispatch(action[type]).then((data) => {
+            setUserData(data);
+        });
     }
 
     return(
         <div>
-            <h1 className="page-title">Login</h1>
+            <h1 className="page-title">Sign Up</h1>
             <div className="container">
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">

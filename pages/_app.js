@@ -1,13 +1,15 @@
 import Layout from '../components/Layout'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.css'
-
+import {AppState} from "../AppState"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <AppState>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </AppState>
   )
 }
 

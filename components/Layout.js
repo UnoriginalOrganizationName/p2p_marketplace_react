@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { Router } from "next/router"
 import Header from "./Header"
 const Layout = ({children}) => {
 
@@ -8,7 +9,6 @@ const Layout = ({children}) => {
                 <title>Marketplace</title>
             </Head>
             <body>
-                <Header></Header>
                 <main>
                     {children}
                 </main>
