@@ -1,7 +1,7 @@
 const RequestForm = (props) => {
 
     const handleSubmit = async() => {
-        const res = await fetch(process.env.HOST + '/requests', {
+        const res = await fetch(process.env.API_URL + '/requests', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'

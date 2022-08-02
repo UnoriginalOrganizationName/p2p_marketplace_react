@@ -1,5 +1,4 @@
-export default async function getServerSideProps(context){
-    const token = context.req.cookies?.jwt || null;
+export default isAuthenticated = async () => {
+    
 
-    const {data} = await authenticate();
 }

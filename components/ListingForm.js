@@ -1,7 +1,7 @@
 const ListingForm = (props) => {
 
     const handleSubmit = async() => {
-        const res = await fetch(process.env.HOST + '/listings', {
+        const res = await fetch(process.env.API_URL + '/listings', {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'

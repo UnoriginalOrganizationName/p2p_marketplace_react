@@ -1,5 +1,5 @@
 export const getStaticProps = async () => {
-    const res = await fetch(process.env.HOST + '/users');
+    const res = await fetch(process.env.API_URL + '/users');
     const data = await res.json();
     
     return {

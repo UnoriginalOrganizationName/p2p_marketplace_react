@@ -1,5 +1,5 @@
 export const getStaticPaths = async() => {
-    const res = await fetch(process.env.HOST + '/listings');
+    const res = await fetch(process.env.API_URL + '/listings');
     const data = await res.json();
     
     const paths = data.map(listing =>{
@@ -16,7 +16,7 @@ export const getStaticPaths = async() => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const res = await fetch(process.env.HOST + /listings/ + id);
+    const res = await fetch(process.env.API_URL + /listings/ + id);
     const data = await res.json();
 
     return{

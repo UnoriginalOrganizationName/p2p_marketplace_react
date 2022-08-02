@@ -1,27 +1,40 @@
 import React, {useState} from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
+import nextConfig from "../next.config";
+import { useRouter } from "next/router";
+
 const AuthForm = (props) =>{
+
+    const router = useRouter();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')  
 
-    const handleSubmit = (e, email, password) => {
+    const handleSubmit = async (e, email, password) => {
         
         e.preventDefault()
 
-        axios.post("http://127.0.0.1:3001/login", {
-            user: {
-                email: email,
-                password: password
-            }
+        const url = process.env.NEXT_PUBLIC_API_URL
+
+        await fetch(url + props.endpoint, {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                email,
+                password
+            })
         })
-        .then(response =>{
-            if (response.data.console.errors){
-                //setError(response.data.errors)
+        .then(res =>{
+            if (res.status === 200 || res.status === 201){
+                router.push('/profile')
             }
             else{
-                //setError("")
-                localStorage.setItem("token", response.data.jwt)
+                return(
+                    <div></div>
+                )
             }
         })
     }
